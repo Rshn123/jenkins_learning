@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 bat "npm i"
-                bat "npx cypress run"            
+                bat "npx cypress run --browser chrome --spec cypress/e2e/*/*.cy.js"            
             }
         }
         stage('Deliver') {
