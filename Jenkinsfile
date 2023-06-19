@@ -10,9 +10,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing.."
-                cd "cypress"
-                "npx cypress run"
-               
+                bat "npn i"
+                bat "npx cypress run"            
             }
         }
         stage('Deliver') {
