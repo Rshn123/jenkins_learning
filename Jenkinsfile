@@ -1,22 +1,29 @@
- pipeline {
-        agent any
-        parameters {
-            string(name: 'myInput', description: 'Some pipeline parameters')
-        }
-        stages {
-            stage('Stage one') {
-                steps {
-                    script {
-                        echo "Parameter from template creation: " + templateParams.someParam
-                    }
-                }
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo "Building.."
+                sh '''
+                echo "doing build stuff.."
+                '''
             }
-            stage('Stage two') {
-                steps {
-                    script {
-                        echo "Job input parameter: " + params.myInput
-                    }
-                }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing.."
+                sh '''
+                echo "doing test stuff..
+                '''
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
             }
         }
     }
+}
