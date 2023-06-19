@@ -10,8 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Testing.."
-                bat "npm i"
-                bat "npx cypress run --browser chrome --spec cypress/e2e/*/*.cy.js"            
+                bat "npm i && npx cypress run --browser chrome --spec cypress/e2e/*/*.cy.js"        
             }
         }
         stage('Deliver') {
